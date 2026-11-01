@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>User List</h1>
+    <ul>
+        <% for(let oneUser of users){ %>
+            <li>Username: <%= oneUser.username %> - Admin? <%= oneUser.isAdmin %> </li>
+            <form action="/auth/toggle-admin/<%= oneUser._id %>" method="post">
+                <button>
+                    <% if(oneUser.isAdmin){ %>
+                        Remove Admin Role
+                    <% }else{ %>
+                        Give Admin Role
+                    <% } %>
+                </button>
+            </form>
+            <form action="/auth/<%= oneUser._id %>/delete" method="post">
+                <button>Delete User</button>
+            </form>
+        <% } %>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entry List</title>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>Entry List</h1>
+
+    <ul>
+        <% for(let oneEntry of entries){ %>
+            <li><a href="/entries/<%= oneEntry._id %>"><%= oneEntry.title %></a> - 
+            <%= oneEntry.entryBody %></li>
+            <!-- the condition is in the details page -->
+        <% } %>
+    </ul>
+</body>
+
+</html>

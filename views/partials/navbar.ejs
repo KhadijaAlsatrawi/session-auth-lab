@@ -1,0 +1,20 @@
+<nav>
+    
+    <a href="/">Homepage</a>
+    <a href="/entries">Public Entries</a>
+    <% if (user){ %>
+    <a href="/entries/my-entries">My Entries</a>
+    <a href="/entries/new">New Entry</a>
+
+    <% if(user.isAdmin) {%>
+        <a href="/auth/admin">User List</a>
+    <% } %>
+    <a href="/auth/sign-out">Logout</a>
+
+    <% } else{ %>
+    <a href="/auth/sign-up">Sign up</a>
+    <a href="/auth/sign-in">Login</a>
+
+    <% } %>
+    
+</nav>
